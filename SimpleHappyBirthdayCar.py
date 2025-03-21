@@ -79,36 +79,3 @@ async def main():
             control_mode = 1
 
 run_task(main())
-
-"""
-motor_rueda_alante = Motor(Port.C)
-motor_rueda_delante = Motor(Port.F)
-
-motor_cadena = Motor(Port.E)
-motor_pala = Motor(Port.B)
-fuerza = ForceSensor(Port.A)
-
-motor_cadena.dc(100)
-angulo = 90
-motor_pala.run_angle(2000, -angulo, then=Stop.HOLD)
-wait(3000)
-
-async def Patras():
-    while True:
-        Fuerza = await fuerza.pressed()
-        print('fuerza ' + str(Fuerza))
-        if Fuerza:
-            motor_rueda_alante.run_angle(2000, -2 * 360, then=Stop.BRAKE, wait=False)
-            motor_rueda_delante.run_angle(2000, 2 * 360, then=Stop.BRAKE, wait=False)
-        await wait(100)
-
-async def Ahostiar(angulo):
-    while True:
-        print('angulo ' + str(angulo))
-        motor_pala.run_angle(2000, angulo, then=Stop.HOLD)
-        await wait(500)
-        angulo = -angulo
-
-
-run_task(multitask(Patras(), Ahostiar(angulo)))"
-"""
